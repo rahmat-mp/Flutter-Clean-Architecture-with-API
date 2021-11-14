@@ -30,7 +30,7 @@ class SingleArticleController extends GetxController {
   Article get article => _article.value;
 
   int _articleId = 0;
-  Future getAllArticles() async {
+  Future getSingleArticles(_articleId) async {
     setIsLoading(true);
 
     final Either<Failure, Article> response = await getArticlesUseCase!
@@ -61,7 +61,7 @@ class SingleArticleController extends GetxController {
   @override
   void onInit() async {
     _articleId = Get.arguments as int;
-    await getAllArticles();
+    await getSingleArticles(_articleId);
     super.onInit();
   }
 }

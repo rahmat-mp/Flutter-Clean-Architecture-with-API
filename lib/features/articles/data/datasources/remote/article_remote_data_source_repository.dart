@@ -24,10 +24,10 @@ class ArticleRemoteDataSourceImpl implements ArticleRemoteDataSourceRepository {
         options: Options(contentType: 'application/json'));
 
     if (response.statusCode == 200) {
-      // var decode = response.data;
+      var decode = response.data;
 
       //Whenever For testing add json decoded
-      var decode = json.decode(response.data);
+      // var decode = json.decode(response.data);
       ArticleModel article = ArticleModel.fromJson(decode);
       return article;
     } else {
@@ -45,6 +45,7 @@ class ArticleRemoteDataSourceImpl implements ArticleRemoteDataSourceRepository {
       final List<ArticleModel> _articles = [];
 
       var decode = response.data;
+      print(decode);
       //Whenever For testing add json decoded
       // var decode = json.decode(response.data);
       for (var article in decode) {
